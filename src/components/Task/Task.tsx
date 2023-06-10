@@ -8,6 +8,10 @@ interface IProps {
 }
 
 const Task: FC<IProps> = ({updateStatusTask, task }) => {
+  if(!task.text.length) {
+    return null;
+  }
+
   return(
     <li className='flex items-center p-1 gap-2 border-collapse border-y select-none cursor-pointer' onClick={() => updateStatusTask(task.id)}>
       <div className={

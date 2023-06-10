@@ -11,6 +11,10 @@ interface IProps {
 }
 
 const TasksList: FC<IProps> = ({ todoList, updateStatusTask, filter }) => {
+  if(!todoList.length) {
+    return null;
+  }
+
   return(
     <ul className='flex flex-col'>
         {todoList.map((item) => {

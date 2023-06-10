@@ -29,7 +29,9 @@ const Todo: FC = () => {
     setLeftTask(leftTasksArray);
   }, [todoList, setLeftTask]);
 
-  const addNewItem = (item: TItemList) => {
+  const addNewItem = (event: React.SyntheticEvent, item: TItemList) => {
+    event.preventDefault();
+
     setTodoList([...todoList, item]);
   };
 
@@ -66,7 +68,7 @@ const Todo: FC = () => {
 
   return (
     <div className='mx-[5px] sm:mx-[50px] md:mx-[150px] xl:mx-[300px] mt-5 bg-slate-50 border-4 border-slate-50 box-border'>
-      <FormAddItem addNewItem={addNewItem} />
+      <FormAddItem onSubmit={addNewItem} />
       <TasksList filter={filter} updateStatusTask={updateStatusTask} todoList={todoList} />
       <Tools updateFilter={(filter: TFilter) => setFilter(filter)} filter={filter} onClickClearComplited={onClickClearComplited} itemsLeft={leftTask.length}/>
     </div>
