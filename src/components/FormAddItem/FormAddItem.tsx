@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { TItemList } from '../../types/TItemList';
 import { generateRandomId } from '../../utils/generateRandomId';
+import arrowDown from '../../images/arrow-down.png';
 
 interface IProps {
   addNewItem: (item: TItemList) => void; 
@@ -21,8 +22,9 @@ const FormAddItem: FC<IProps> = ({ addNewItem }) => {
   }
 
   return(
-    <form onSubmit={onSubmitForm} className='border-b-4 border-slate-200'>
-      <input value={newTask} onChange={onChangeTask} className='w-full outline-none p-2 text-2xl' placeholder='Whats need to be done?' />
+    <form onSubmit={onSubmitForm} className='flex p-1 gap-1 items-center border-b-4 border-slate-200'>
+      <button style={{backgroundImage: `url(${arrowDown})`}} className='w-[23px] h-[23px] bg-contain' type='submit' />
+      <input value={newTask} onChange={onChangeTask} className='w-full outline-none text-2xl' placeholder='Whats need to be done?' />
     </form>
   );
 };
