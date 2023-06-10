@@ -24,7 +24,7 @@ const FormAddItem: FC<IProps> = ({ addNewItem }) => {
   return(
     <form onSubmit={onSubmitForm} className='flex p-1 gap-1 items-center border-b-4 border-slate-200'>
       <button style={{backgroundImage: `url(${arrowDown})`}} className='w-[23px] h-[23px] bg-contain' type='submit' />
-      <input value={newTask} onChange={onChangeTask} className='w-full outline-none text-2xl' placeholder='Whats need to be done?' />
+      <input value={newTask} onChange={onChangeTask} className='w-full outline-none text-2xl bg-transparent' placeholder='Whats need to be done?' />
     </form>
   );
 };
