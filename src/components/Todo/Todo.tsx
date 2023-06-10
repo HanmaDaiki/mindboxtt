@@ -36,7 +36,11 @@ const Todo: FC = () => {
   const onClickClearComplited = () => {
     const clearedList: Array<TItemList> = [];
 
-    todoList.forEach((item) => clearedList.push({...item, status: false}));
+    todoList.forEach((item) => {
+      if(!item.status) {
+        clearedList.push(item);
+      }
+    });
 
     setTodoList(clearedList);
   };
